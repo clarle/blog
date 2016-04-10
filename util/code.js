@@ -22,7 +22,10 @@ module.exports = function(code, lang, escaped) {
           + '</code></pre>';
     }
 
-    return '<pre class="line-numbers"><code class="'
+    return '<pre class="line-numbers '
+        + this.options.langPrefix
+        + escape(lang, true)
+        + '"><code class="'
         + this.options.langPrefix
         + escape(lang, true)
         + '">'

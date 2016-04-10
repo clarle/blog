@@ -5,6 +5,7 @@ var gulp      = require('gulp'),
 
     metalsmith = require('gulp-metalsmith'),
     markdown   = require('metalsmith-markdown'),
+    prism      = require('@clarle/metalsmith-prism'),
     layouts    = require('metalsmith-layouts')
 
     marked = require('marked'),
@@ -22,7 +23,11 @@ gulp.task('default', function() {
             frontmatter: true,
             use: [
                 markdown({
-                    renderer: renderer
+                    renderer: renderer,
+                    langPrefix: 'language-'
+                }),
+                prism({
+                    lineNumbers: true
                 }),
                 layouts({
                     engine: 'handlebars',
@@ -43,14 +48,4 @@ gulp.task('css', function() {
         .pipe(minifyCSS())
         .pipe(concat('main.css'))
         .pipe(gulp.dest('./build/css'));
-});
-
-gulp.task('js', function() {
-    gulp.src([
-            'bower_components/prism/prism.js',
-            'bower_components/prism/plugins/line-numbers/prism-line-numbers.js'
-        ])
-        .pipe(minifyJS())
-        .pipe(concat('main.js'))
-        .pipe(gulp.dest('./build/js'));
 });
