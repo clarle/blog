@@ -11,7 +11,9 @@ var gulp      = require('gulp'),
     marked = require('marked'),
     code   = require('./util/code');
 
-gulp.task('default', function() {
+gulp.task('default', ['html', 'css']);
+
+gulp.task('html', function() {
     // Overwrite default Markdown code renderer
     // with Prism-specific code renderer
     var renderer      = new marked.Renderer();
