@@ -6,12 +6,27 @@ var gulp      = require('gulp'),
     metalsmith = require('gulp-metalsmith'),
     markdown   = require('metalsmith-markdown'),
     prism      = require('@clarle/metalsmith-prism'),
-    layouts    = require('metalsmith-layouts')
+    layouts    = require('metalsmith-layouts'),
+
+    s3         = require('gulp-s3'),
+    gzip       = require('gulp-gzip'),
+    aws        = require('./aws.json'),
 
     marked = require('marked'),
     code   = require('./util/code');
 
 gulp.task('default', ['html', 'css']);
+
+gulp.task('deploy', function() {
+    gulp.src('./build/**')
+        .pipe(gzip())
+        .pipe(s3(aws, {
+            headers: {
+                'Cache-Control': 'max-age=315360000, no-transform, public'
+            },
+            gzippedOnly: true
+        }));
+});
 
 gulp.task('html', function() {
     // Overwrite default Markdown code renderer

@@ -16,16 +16,18 @@
   },
   "homepage": "https://github.com/clarle/blog#readme",
   "devDependencies": {
+    "@clarle/metalsmith-prism": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.5.2",
+    "gulp-gzip": "^1.2.0",
     "gulp-metalsmith": "0.0.3",
     "gulp-minify-css": "^1.1.6",
+    "gulp-s3": "^0.3.0",
     "gulp-uglify": "^1.2.0",
     "handlebars": "^3.0.3",
     "marked": "^0.3.3",
     "metalsmith": "^1.7.0",
     "metalsmith-layouts": "^1.0.0",
-    "metalsmith-markdown": "^0.2.1",
-    "@clarle/metalsmith-prism": "^2.2.0"
+    "metalsmith-markdown": "^0.2.1"
   }
 }
