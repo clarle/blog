@@ -5,6 +5,7 @@ var gulp      = require('gulp'),
 
     metalsmith = require('gulp-metalsmith'),
     markdown   = require('metalsmith-markdown'),
+    dateFormat = require('metalsmith-date-formatter'),
     prism      = require('@clarle/metalsmith-prism'),
     layouts    = require('metalsmith-layouts'),
 
@@ -42,6 +43,9 @@ gulp.task('html', function() {
                 markdown({
                     renderer: renderer,
                     langPrefix: 'language-'
+                }),
+                dateFormat({
+                    dates: 'date'
                 }),
                 prism({
                     lineNumbers: true

@@ -27,6 +27,7 @@
     "handlebars": "^3.0.3",
     "marked": "^0.3.3",
     "metalsmith": "^1.7.0",
+    "metalsmith-date-formatter": "^1.0.2",
     "metalsmith-layouts": "^1.0.0",
     "metalsmith-markdown": "^0.2.1"
   }
