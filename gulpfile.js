@@ -71,9 +71,9 @@ gulp.task('html', function() {
 
 gulp.task('css', function() {
     gulp.src([
-            'bower_components/normalize-css/normalize.css',
-            'bower_components/prism/themes/prism.css',
-            'bower_components/prism/plugins/line-numbers/prism-line-numbers.css',
+            'node_modules/normalize.css/normalize.css',
+            'node_modules/prismjs/themes/prism.css',
+            'node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css',
             'layouts/styles/**/*.css'
         ])
         .pipe(minifyCSS())
