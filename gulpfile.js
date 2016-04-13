@@ -3,11 +3,12 @@ var gulp      = require('gulp'),
     minifyJS  = require('gulp-uglify'),
     concat    = require('gulp-concat'),
 
-    metalsmith = require('gulp-metalsmith'),
-    markdown   = require('metalsmith-markdown'),
-    dateFormat = require('metalsmith-date-formatter'),
-    prism      = require('@clarle/metalsmith-prism'),
-    layouts    = require('metalsmith-layouts'),
+    metalsmith  = require('gulp-metalsmith'),
+    collections = require('metalsmith-collections'),
+    markdown    = require('metalsmith-markdown'),
+    dateFormat  = require('metalsmith-date-formatter'),
+    prism       = require('@clarle/metalsmith-prism'),
+    layouts     = require('metalsmith-layouts'),
 
     s3         = require('gulp-s3'),
     gzip       = require('gulp-gzip'),
@@ -40,6 +41,11 @@ gulp.task('html', function() {
             root: __dirname,
             frontmatter: true,
             use: [
+                collections({
+                    latest: {
+                        pattern: '*.md'
+                    }
+                }),
                 markdown({
                     renderer: renderer,
                     langPrefix: 'language-'
