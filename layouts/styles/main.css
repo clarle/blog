@@ -97,8 +97,14 @@ header {
 }
 
 .listing {
+    display: block;
     padding: 10px 20px 20px 40px;
     line-height: 25px;
+    text-decoration: none;
+}
+
+.listing:hover {
+    background-color: #C8D8C5;
 }
 
 .listing-date {
@@ -124,7 +130,7 @@ pre[class*="language-"] {
     white-space: pre;
 }
 
-@media only screen 
+@media only screen
 and (max-width: 1024px) {
     #blog-links {
         display: none;

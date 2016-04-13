@@ -6,8 +6,9 @@ var gulp      = require('gulp'),
     metalsmith  = require('gulp-metalsmith'),
     collections = require('metalsmith-collections'),
     markdown    = require('metalsmith-markdown'),
-    dateFormat  = require('metalsmith-date-formatter'),
     prism       = require('@clarle/metalsmith-prism'),
+    permalinks  = require('metalsmith-permalinks'),
+    dateFormat  = require('metalsmith-date-formatter'),
     layouts     = require('metalsmith-layouts'),
 
     s3         = require('gulp-s3'),
@@ -50,11 +51,14 @@ gulp.task('html', function() {
                     renderer: renderer,
                     langPrefix: 'language-'
                 }),
-                dateFormat({
-                    dates: 'date'
-                }),
                 prism({
                     lineNumbers: true
+                }),
+                permalinks({
+                    pattern: 'posts/:title'
+                }),
+                dateFormat({
+                    dates: 'date'
                 }),
                 layouts({
                     engine: 'handlebars',

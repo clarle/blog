@@ -3,12 +3,14 @@
   <head>
     <title>desynchronized</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
   </head>
   <body>
     <nav id="header-nav">
         <div id="blog-home">
-            <div id="blog-title"><a id="blog-link" href="http://cs.mcgill.ca/~cleung24/blog">desynchronized</a></div>
+            <div id="blog-title">
+                <a id="blog-link" href="http://cs.mcgill.ca/~cleung24/blog">desynchronized</a>
+            </div>
             <div id="blog-headline">Lorem ipsum dolor sit ameta.</div>
         </div>
         <ul id="blog-links">
@@ -30,11 +32,11 @@
       </article>
       <nav id="listings">
         {{#each collections.latest}}
-        <div class="listing">
+        <a class="listing" href="/{{this.path}}">
           <div class="listing-date">{{this.date}}</div>
           <div class="listing-title">{{this.title}}</div>
           <div class="listing-teaser">{{this.teaser}}</div>
-        </div>
+        </a>
         {{/each}}
       </nav>
     </div>
