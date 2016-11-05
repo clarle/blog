@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>desynchronized</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+  </head>
+  <body>
+    <nav id="header-nav">
+        <div id="blog-home">
+            <div id="blog-title">
+                <a id="blog-link" href="/">desynchronized</a>
+            </div>
+            <div id="blog-headline">Lorem ipsum dolor sit ameta.</div>
+        </div>
+        <ul id="blog-links">
+            <li>about</li>
+            <li>archive</li>
+        </ul>
+    </nav>
+    <div class="container">
+      <article class="main">
+        <header>
+          <hgroup>
+            <h1 class="post-title">{{title}}</h1>
+            <h4 class="post-date">{{date}}</h4>
+          </hgroup>
+        </header>
+        <div class="content">
+          {{{contents}}}
+        </div>
+      </article>
+      <nav id="listings">
+        {{#each collections.latest}}
+        <a class="listing" href="/{{this.path}}">
+          <div class="listing-date">{{this.date}}</div>
+          <div class="listing-title">{{this.title}}</div>
+          <div class="listing-teaser">{{this.teaser}}</div>
+        </a>
+        {{/each}}
+      </nav>
+    </div>
+  </body>
+</html>
